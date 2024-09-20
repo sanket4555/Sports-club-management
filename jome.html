@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(45deg,#d2001a,#7462ff,#d58e23);
+  height: 200vh;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
+  z-index: 2;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: 2px solid orange;
+  font-size: 17px;
+  border-radius: 20px;
+}
+
+.search-btn {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  color: black;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  border: 2px solid orange;
+  border-radius: 20px;
+}
+
+.search-btn:hover {
+  background-color: #ccc;
+}
+
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg,#d2001a,#d58e23);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #12111145;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+  background:linear-gradient(45deg,#d2001a,#d58e23);
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background:none;
+  
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+.slider-container {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px 30px 0px 0px;
+  margin: 0;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  background: none;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px 30px 0px 0px;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.active {
+  opacity: 1;
+  border-radius: 30px 30px 0px 0px;
+}
+@keyframes typing {
+    0% { width: 0; }
+  50% { width: 58%; }
+  100% { width: 0; }
+}
+
+.typed-text {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  
+  padding-left: 200px;
+  padding-top: 100px;
+  font-family:"Lora",sans-serif ;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 6s steps(22, end)infinite alternate;
+  margin: 20px;
+  text-align: center;
+}
+.para
+{
+    font-size: 20px;
+   
+   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  color: white;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+.login-btn {
+    width: 100px;
+    padding: 10px;
+    margin-left: 650px;
+    background: linear-gradient(45deg,#d28500,#d02121);
+    color: #fff;
+    text-shadow: 2px 1px  rgb(14, 14, 14);
+    border: red 2px solid;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .login-btn a
+  {
+    
+  text-decoration: none;
+  font-size: 20px;
+  color: #12111145;
+  display: block;
+  transition: 0.3s;
+  }
+  footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        footer .social-icons {
+            margin-top: 10px;
+        }
+        footer .social-icons a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        footer .social-icons a:hover {
+            color: #007bff;
+        }
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <button class="openbtn" onclick="openNav()">☰</button>
+
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/services">Services</a>
+<a href="/contact">Contact</a>
+
+<!-- Search form and button -->
+<button class="search-btn" onclick="searchFunction()">Search</button>
+<input type="text" id="searchInput" placeholder="Search..">
+
+       
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="/login">login</a>
+  <a href="/dashboard">dashboard</a>
+  <a href="/member">member</a>
+  <a href="/timetable">timetable</a>
+</div>
+    </div>
+
+    
+<div class="slider-container">
+    <div class="slide active">
+      <img src="assets/tt.jpg" alt="logo" style="width:100%; height: 100%;">
+    </div>
+    <div class="slide">
+      <img src="assets/basketball.jpg" alt="logo" style="width:100%; height: 100%;">
+    </div>
+  
+</div>
+<div id="main">
+    <div class="typed-text"><b>Welcome to Sport Club Manager...!</b></div>
+</div>
+<div class="para">
+    <p>A Sports Club Management System is a digital platform designed to streamline the operations of sports clubs. It enables efficient management of member registrations, team rosters, event scheduling, and financial transactions such as membership fees and sponsorships. The system often includes features for tracking player performance, booking facilities, and communicating with members via notifications or emails.   It helps club administrators automate routine tasks, maintain accurate records, and improve decision-making. Additionally, such systems may offer mobile apps to enhance user convenience, promoting better engagement and organization within the club, leading to a more cohesive sporting community.</p>
+</div>
+<div class="login-btn-container">
+    <!-- Use a button instead of anchor for better form submission -->
+    <button type="submit" class="login-btn"><a href="/login">Login</a></button>
+</div>
+    <footer>
+        <p>Contact Us</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:info@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+  
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].classList.add("active");
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+   
+</body>
+</html> 

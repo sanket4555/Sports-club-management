@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/aboutus.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+  <title>Sports Management System - Timetable</title>
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 3.5rem;
+      background: linear-gradient(45deg,#d2001a,#7462ff,#d58e23);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    nav {
+    font-family: sans-serif;
+  
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+
+    /* Styling for booked slots */
+    .booked {
+      color: white;
+      background:linear-gradient(90deg,#de5432,#d02121); /* Light red */
+    }
+
+    /* Styling for available slots */
+    .available {
+      color: white;
+      background:linear-gradient(90deg,#00d25b,#47d021); /* Light green */
+      cursor: pointer;
+    }
+    .available:hover {
+      color:white;
+      background:linear-gradient(90deg,#00d277,#0edf23); /* Darker green */
+    }
+
+    /* Widgets */
+    .widget {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .widget button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background:linear-gradient(90deg,#00d2d2,#213bd0);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .widget button:hover {
+      background-color: #2471A3;
+    }
+  </style>
+</head>
+<form id="form1">
+  <header>
+      <!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+          <a class="navbar-brand" href="#"><b>sports club management</b></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="dashboard.html">Get Started</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="member.html">Member info</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="Selectsymptom.html">health info</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="timetable.html">Timetable</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">|</a>
+          </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+          </li>
+              </ul>
+          </div>
+      </nav>
+
+   <main role="main">
+<body>
+  <div class="jumbotron" style="background:none;color: white;">
+    
+      <h1 class="display-4">Book Your slot here!</h1>
+    
+  </div>
+  <div class="container">
+    <h2>Sports Management System - Timetable</h2>
+  
+
+    <table>
+      <thead>
+        <tr>
+          <th>Time Slot</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8:00 AM - 10:00 AM</td>
+          <td class="booked" data-info="John Doe (Football)">Football</td>
+          <td class="available" data-info="Click to book">Basketball</td>
+          <td class="available" data-info="Click to book">Running</td>
+          <td class="booked" data-info="Jane Smith (Swimming)">Swimming</td>
+          <td class="available" data-info="Click to book">Yoga</td>
+        </tr>
+        <tr>
+          <td>10:00 AM - 12:00 PM</td>
+          <td class="available" data-info="Click to book">Tennis</td>
+          <td class="booked" data-info="Mike Johnson (Volleyball)">Volleyball</td>
+          <td class="available" data-info="Click to book">Gymnastics</td>
+          <td class="booked" data-info="Emily Brown (Badminton)">Badminton</td>
+          <td class="available" data-info="Click to book">Boxing</td>
+        </tr>
+        <tr>
+          <td>12:00 PM - 2:00 PM</td>
+          <td class="available" data-info="Click to book">Cricket</td>
+          <td class="available" data-info="Click to book">Table Tennis</td>
+          <td class="booked" data-info="Alex Clark (Weightlifting)">Weightlifting</td>
+          <td class="available" data-info="Click to book">Cycling</td>
+          <td class="booked" data-info="Sophia Martinez (Dance)">Dance</td>
+        </tr>
+        <!-- Add more rows for additional time slots -->
+      </tbody>
+    </table>
+
+    <div id="bookingInfo"></div>
+
+    <div class="widget">
+      <button onclick="showAllBookings()">Show All Bookings</button>
+      <button onclick="clearAllBookings()">Clear All Bookings</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to display booking information
+    function showBookingInfo(info) {
+      document.getElementById('bookingInfo').innerText = info;
+    }
+
+    // Function to handle slot booking
+    function bookSlot(slot) {
+      var info = slot.getAttribute('data-info');
+      if (info === 'Click to book') {
+        var name = prompt('Enter your name:');
+        if (name) {
+          slot.innerText = name;
+          slot.classList.remove('available');
+          slot.classList.add('booked');
+          slot.setAttribute('data-info', name);
+          showBookingInfo(name + ' (Booked)');
+        }
+      } else {
+        showBookingInfo(info);
+      }
+    }
+
+    // Add click event listener to available slots
+    var availableSlots = document.querySelectorAll('.available');
+    availableSlots.forEach(function(slot) {
+      slot.addEventListener('click', function() {
+        bookSlot(slot);
+      });
+    });
+
+    // Function to show all bookings
+    function showAllBookings() {
+      var bookedSlots = document.querySelectorAll('.booked');
+      var bookings = [];
+      bookedSlots.forEach(function(slot) {
+        bookings.push(slot.getAttribute('data-info'));
+      });
+      showBookingInfo('All Bookings:\n' + bookings.join('\n'));
+    }
+
+    // Function to clear all bookings
+    function clearAllBookings() {
+      var bookedSlots = document.querySelectorAll('.booked');
+      bookedSlots.forEach(function(slot) {
+        slot.innerText = 'Click to book';
+        slot.classList.remove('booked');
+        slot.classList.add('available');
+        slot.setAttribute('data-info', 'Click to book');
+      });
+      showBookingInfo('');
+    }
+  </script>
+</body>
+</html>
+

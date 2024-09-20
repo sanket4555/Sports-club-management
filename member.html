@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/aboutus.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+  <title>Member Management</title>
+  <link rel="stylesheet" href="assets/style2.css">
+</head>
+<header>
+  <!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+      <a class="navbar-brand" href="#"><b>sports club management</b></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="dashboard.html">Get Started</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="member.html">Member info</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="Selectsymptom.html">health info</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="timetable.html">Timetable</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#">|</a>
+      </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+      </li>
+          </ul>
+      </div>
+  </nav>
+
+<main role="main">
+<body>
+  <div class="jumbotron" style="background:none;color: white; margin-left: 0%;">
+    
+    <h1 class="display-4">Add a member here!</h1>
+  
+</div>
+  <div class="container">
+    <h2>Member Management</h2>
+
+    <!-- Form for adding new member -->
+    <form id="addMemberForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <button type="submit">Add Member</button>
+      <a href="/timetable" id="submitAndRedirectButton" class="submit-button">Submit and Redirect</a>
+    </form>
+
+    <!-- Table to display existing members -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="memberList">
+        <!-- Member records will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+  
+
+  <script>
+    // JavaScript code to handle form submission and dynamic table population
+    document.getElementById('addMemberForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+
+      // Create new row for the member
+      var newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${email}</td>
+        <td>
+          <button class="edit-button" onclick="editMember(this)">Edit</button>
+          <button class="delete-button" onclick="deleteMember(this)">Delete</button>
+        </td>
+      `;
+      document.getElementById('memberList').appendChild(newRow);
+
+      // Clear form fields after submission
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+    });
+
+    // Function to delete member
+    function deleteMember(button) {
+      var row = button.parentNode.parentNode; // Get parent row
+      row.parentNode.removeChild(row); // Remove row from table
+    }
+
+    // Function to edit member details
+    function editMember(button) {
+      var row = button.parentNode.parentNode;
+      var cells = row.getElementsByTagName('td');
+      var name = cells[0].innerText;
+      var email = cells[1].innerText;
+
+      // Prompt user to update member details
+      var updatedName = prompt('Enter updated name:', name);
+      var updatedEmail = prompt('Enter updated email:', email);
+
+      // Update table with new details if provided
+      if (updatedName !== null && updatedEmail !== null) {
+        cells[0].innerText = updatedName;
+        cells[1].innerText = updatedEmail;
+      }
+    }
+
+    // Event listener for "Submit and Redirect" button
+    document.getElementById('submitAndRedirectButton').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default anchor behavior
+      // Perform any necessary actions here
+      // Then redirect the user to another page
+      window.location.href = '/timetable';// Change the URL as needed
+    });
+  </script>
+</body>
+</html>

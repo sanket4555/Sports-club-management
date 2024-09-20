@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- Add your CSS styles -->
+</head>
+<body>
+<div class="login-container">
+  
+  <div class="ui">
+    <div class="u">
+      <img  src="assets/wing.png" alt="llogo" height="300px" width="300px">
+    </div>
+    <div class="login-form">
+      <h2>Login</h2>
+      <!-- Update form action to point to our Node.js server -->
+      <form action="http://localhost:3000/login" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <div class="login-btn-container">
+          <!-- Use a button instead of anchor for better form submission -->
+          <button type="submit" class="login-btn">Login</button>
+        </div>
+        
+      </form>
+   
+    </div>
+
+  </div>
+  
+</div>
+</body>
+</html>

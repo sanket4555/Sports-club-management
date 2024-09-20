@@ -1,0 +1,25 @@
+{
+  "name": "relo",
+  "version": "1.0.0",
+  "description": "User registration and user login application developed with Node.js, Express.js and MySQL",
+  "main": "app.js",
+  "author": "Yusuf Sezer <yusufsezer@mail.com> (https://www.yusufsezer.com/)",
+  "license": "MIT",
+  "private": true,
+  "keywords": [],
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.4",
+    "express": "~4.18.2",
+    "express-session": "~1.17.3",
+    "exprss": "^0.0.1-security",
+    "http-errors": "~2.0.0",
+    "morgan": "~1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7",
+    "pug": "~3.0.2"
+  }
+}
